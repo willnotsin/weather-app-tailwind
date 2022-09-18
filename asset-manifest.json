@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/weather-app-tailwind/static/css/main.fb79cede.css",
+    "main.js": "/weather-app-tailwind/static/js/main.1dd29c57.js",
+    "index.html": "/weather-app-tailwind/index.html",
+    "main.fb79cede.css.map": "/weather-app-tailwind/static/css/main.fb79cede.css.map",
+    "main.1dd29c57.js.map": "/weather-app-tailwind/static/js/main.1dd29c57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb79cede.css",
+    "static/js/main.1dd29c57.js"
+  ]
+}
