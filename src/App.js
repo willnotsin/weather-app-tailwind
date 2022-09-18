@@ -31,9 +31,15 @@ const App = () => {
   const [location, setLocation] = useState("Enugu");
   const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleInput = (e) => {
     setInputValue(e.target.value)
   }
+  
+
+
+
+
+
   //fetch data
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${api_key}`;
@@ -99,7 +105,7 @@ const App = () => {
         <div>
           <form className="my-2 h-10 bg-black/30 w-full max-w-[450px] rounded-full backdrop-blur-[32px] mb-8">
             <div className="h-full relative flex items-center justify-between p-2">
-              <input
+              <input onChange={(e) => handleInput(e)}
                 className="flex-1 bg-transparent outline-none placeholder:text-green-200 text-[18px] font-light pl-6 h-full"
                 type="text"
                 placeholder="Search by city name or country"
