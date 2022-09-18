@@ -30,15 +30,38 @@ const App = () => {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState("Enugu");
   const [inputValue, setInputValue] = useState("");
+  const [animate, setAnimate] = useState(false)
 
   const handleInput = (e) => {
-    setInputValue(e.target.value)
-  }
-  
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputValue);
+    //if inputvalue is not empty
+    if (inputValue !== ""){
+      setLocation(inputValue);
+    }
+    
+    //select input
+    const input = document.querySelector('input');
+
+    //if unput value is empty
+    if (input.value === ""){
+      //animate is set to true
+      setAnimate(true)
+      //after 500ms set animate to false
+      setTimeout(() => {
+          setAnimate(false);
+      },500)
+    }
 
 
+    //clear input
+    input.value = ""
 
-
+  };
 
   //fetch data
   useEffect(() => {
@@ -103,14 +126,18 @@ const App = () => {
       <div className="w-full max-w-[450px] bg-black/20 min-h-[584px] text-white backdrop-blur-[32px] rounded-[32px] py-12 px-6">
         {/* form */}
         <div>
-          <form className="my-2 h-10 bg-black/30 w-full max-w-[450px] rounded-full backdrop-blur-[32px] mb-8">
+          <form className={`${animate ? 'animate-shake' : 'animate-none'}my-2 h-10 bg-black/30 w-full max-w-[450px] rounded-full backdrop-blur-[32px] mb-8`}>
             <div className="h-full relative flex items-center justify-between p-2">
-              <input onChange={(e) => handleInput(e)}
+              <input
+                onChange={(e) => handleInput(e)}
                 className="flex-1 bg-transparent outline-none placeholder:text-green-200 text-[18px] font-light pl-6 h-full"
                 type="text"
                 placeholder="Search by city name or country"
               />
-              <button className="bg-[#50C878] hover:bg-[#34AC90] w-14 h-7 rounded-full flex justify-center items-center transition">
+              <button
+                onClick={(e) => handleSubmit(e)}
+                className="bg-[#50C878] hover:bg-[#34AC90] w-14 h-7 rounded-full flex justify-center items-center transition"
+              >
                 <IoMdSearch className="text-2xl text-white" />
               </button>
             </div>
