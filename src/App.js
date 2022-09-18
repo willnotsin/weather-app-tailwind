@@ -25,6 +25,8 @@ import {
 import { TbTemperatureCelsius } from "react-icons/tb";
 import { ImSpinner10 } from "react-icons/im";
 
+const api_key = process.env.REACT_APP_API_KEY
+
 const App = () => {
   return <div>react app</div>;
 };
